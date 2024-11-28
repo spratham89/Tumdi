@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tumdi_1/pages/blogs.dart';
 import 'package:tumdi_1/pages/gallery.dart';
 import 'package:tumdi_1/pages/latest.dart';
 
@@ -105,28 +106,36 @@ class Miscellaneous extends StatelessWidget {
                 ],
                         ),
                    ),
-              ),Container(
-            padding: const EdgeInsets.all(8),
-                 
-             height: 150,
-                width: 150,
-               decoration:BoxDecoration(
-              
-                 
-                borderRadius:BorderRadius.circular(20),
-                  border:Border.all(   width: 1,
-                  color:Colors.black,
+              ),GestureDetector(
+                onTap: () {
+                     Navigator.push(
+               context,
+               MaterialPageRoute(builder: (context) => const Blogs()),
+                     );
+                },
+                child: Container(
+                            padding: const EdgeInsets.all(8),
+                   
+                             height: 150,
+                  width: 150,
+                 decoration:BoxDecoration(
                 
-                  ),),
-            child:  Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('assets/images/flutter-logo.png'),
-                const Text("Blogs",style: TextStyle(fontSize: 14.0,color: Colors.black),),
-              ],
-            ),
-                 )]),
+                   
+                  borderRadius:BorderRadius.circular(20),
+                    border:Border.all(   width: 1,
+                    color:Colors.black,
+                  
+                    ),),
+                            child:  Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('assets/images/flutter-logo.png'),
+                  const Text("Blogs",style: TextStyle(fontSize: 14.0,color: Colors.black),),
+                ],
+                            ),
+                   ),
+              )]),
          ),
        ],
      );

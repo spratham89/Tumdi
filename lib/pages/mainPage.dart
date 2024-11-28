@@ -18,9 +18,13 @@ class _MainPageState extends State<MainPage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-     SingleChildScrollView(child: Homepage()),
+   Homepage(),
     Text(
       'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
       style: optionStyle,
     ),
     Text(
@@ -57,16 +61,21 @@ class _MainPageState extends State<MainPage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.last_page),
+            label: 'Latest',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.today),
+            label: 'Today',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.abc_outlined),
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.purple,
+        unselectedItemColor: Colors.black ,
         onTap: _onItemTapped,
       ), );
   }

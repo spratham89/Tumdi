@@ -12,17 +12,19 @@ class Gallery extends StatelessWidget {
         centerTitle: true,
       ),
        extendBody: true,
-       drawer: Mydrawer(),
-      body: ListView.builder(
-          shrinkWrap: true,
-      //  crossAxisAlignment: CrossAxisAlignment.start,
-       itemCount: 1,
-        itemBuilder: (context, index) {
-      return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Expanded(child: SizedBox(width:150.0,height: 150.0,child: Container(width:1.0, decoration: BoxDecoration(color: Colors.amber,borderRadius: BorderRadius.circular(20)),))),
-      );
-        },
+   
+      body: Expanded(
+        child: ListView.builder(
+            shrinkWrap: true,
+        //  crossAxisAlignment: CrossAxisAlignment.start,
+         itemCount: 3,
+          itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: SizedBox(width:100.0,height: 200.0,child: Container(decoration: BoxDecoration(color: Colors.grey.shade200,borderRadius: BorderRadius.circular(20)),)),
+        );
+          },
+        ),
       ),
     );
   }
