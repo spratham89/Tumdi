@@ -32,7 +32,7 @@ class Containersqaure extends StatelessWidget {
                   height: 100.0,
                 ),
                 Text(
-                  imgurl,
+                  name,
                   style: TextStyle(fontSize: 14.0, color: Colors.black),
                 ),
               ],

@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tumdi_1/pages/Homepage.dart';
+import 'package:tumdi_1/pages/latest.dart';
 import 'package:tumdi_1/pages/mydrawer.dart';
+import 'package:tumdi_1/pages/today.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -18,16 +20,10 @@ class _MainPageState extends State<MainPage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Homepage(),
+    Latest(),
+    Today(),
     Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
+      'Index 3: Profile',
       style: optionStyle,
     ),
   ];
@@ -42,7 +38,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hello'),
+        //    title: const Text('Hello'),
         centerTitle: true,
       ),
       extendBody: true,

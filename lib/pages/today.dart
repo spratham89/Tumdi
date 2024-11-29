@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:tumdi_1/pages/mydrawer.dart';
 import 'package:tumdi_1/widget/rectanglelist.dart';
 
-class Latest extends StatelessWidget {
-  const Latest({super.key});
+class Today extends StatelessWidget {
+  const Today({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 5,
       child: Column(
         children: [
           const TabBar(
             tabs: [
-              Tab(text: 'Past'),
-              Tab(text: 'Upcoming'),
+              Tab(text: 'Birthday'),
+              Tab(text: 'Anniversary'),
+              Tab(text: 'Punyatithi'),
+              Tab(text: 'Maran Mondh'),
+              Tab(text: 'Prathana'),
             ],
           ),
           TabBarView(
@@ -22,12 +25,11 @@ class Latest extends StatelessWidget {
               ListView.builder(
                 shrinkWrap: true,
                 //  crossAxisAlignment: CrossAxisAlignment.start,
-                itemCount: 2,
+                itemCount: 5,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Rectanglelist(height: 100.0, width: 100.0),
-                  );
+                      padding: const EdgeInsets.all(12.0),
+                      child: Rectanglelist(height: 50.0, width: 100.0));
                 },
               ),
             ],
