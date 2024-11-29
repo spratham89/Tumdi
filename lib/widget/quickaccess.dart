@@ -1,87 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:tumdi_1/models/banner.dart';
+import 'package:tumdi_1/widget/containersqaure.dart';
 
 class QuickAccess extends StatelessWidget {
-  const QuickAccess({super.key});
+  QuickAccess({super.key});
+  List<String> name = [
+    "Business",
+    "Family Tree",
+    "Directory",
+    "Jobs",
+    "Mataji"
+  ];
+  List<Bannerimg> bannerimg = [
+    Bannerimg(name: "Business", imageurl: "business.jpeg"),
+    Bannerimg(name: "Family Tree", imageurl: "familytree.jpeg"),
+    Bannerimg(name: "Directory", imageurl: "directory.jpeg"),
+    Bannerimg(name: "Jobs", imageurl: "jobs.jpeg"),
+    Bannerimg(name: "Mataji", imageurl: "mataji.jpeg"),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 200.0,
-      child: GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(20),
-       crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        crossAxisCount: 3,
-        children: <Widget>[
-      Container(
-        padding: const EdgeInsets.all(8),
-      
-         height: 50,
-            width: 50,
-           decoration:BoxDecoration(
-          
-             
-            borderRadius:BorderRadius.circular(20),
-              border:Border.all(   width: 1,
-              color:Colors.black,
-            
-              ),),
-        child:  Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset('assets/images/flutter-logo.png'),
-            const Text("Directory",style: TextStyle(fontSize: 14.0,color: Colors.black),),
-          ],
-        ),
-      ),
-           Container(
-        padding: const EdgeInsets.all(8),
-      
-         height: 50,
-            width: 50,
-           decoration:BoxDecoration(
-          
-             
-            borderRadius:BorderRadius.circular(20),
-              border:Border.all(   width: 1,
-              color:Colors.black,
-            
-              ),),
-        child:  Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset('assets/images/flutter-logo.png'),
-            const Text("Business",style: TextStyle(fontSize: 14.0,color: Colors.black),),
-          ],
-        ),
-      ),
-      Container(
-        padding: const EdgeInsets.all(8),
-      
-         height: 50,
-            width: 50,
-           decoration:BoxDecoration(
-          
-             
-            borderRadius:BorderRadius.circular(20),
-              border:Border.all(   width: 1,
-              color:Colors.black,
-            
-              ),),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset('assets/images/flutter-logo.png'),
-            const Text("Matrimonial",style: TextStyle(fontSize: 14.0,color: Colors.black),),
-          ],
-        ),
-      ),
-        
-        ],
+      child: Expanded(
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            //   shrinkWrap: true,
+            itemCount: bannerimg.length,
+            itemBuilder: (context, index) {
+              return Containersqaure(
+                  name: bannerimg[index].name,
+                  imgurl: bannerimg[index].imageurl);
+            }),
       ),
     );
   }

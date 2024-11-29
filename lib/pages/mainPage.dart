@@ -12,13 +12,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final PageController pageController = PageController(initialPage: 0);
   late int _selectedIndex = 0;
 
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-   Homepage(),
+    Homepage(),
     Text(
       'Index 1: Business',
       style: optionStyle,
@@ -38,6 +37,7 @@ class _MainPageState extends State<MainPage> {
       _selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,14 +47,14 @@ class _MainPageState extends State<MainPage> {
       ),
       extendBody: true,
       body: SizedBox(
-         height: MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top,
-         
-        child:Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        height: MediaQuery.of(context).size.height -
+            MediaQuery.of(context).padding.top,
+        child: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
       ),
-      ),
-      drawer: const Mydrawer(), 
-     bottomNavigationBar: BottomNavigationBar(
+      drawer: const Mydrawer(),
+      bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -75,9 +75,10 @@ class _MainPageState extends State<MainPage> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.purple,
-        unselectedItemColor: Colors.black ,
+        unselectedItemColor: Colors.black,
         onTap: _onItemTapped,
-      ), );
+      ),
+    );
   }
 }
 
