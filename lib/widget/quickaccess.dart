@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tumdi_1/models/banner.dart';
+import 'package:tumdi_1/pages/directory.dart';
+import 'package:tumdi_1/pages/homepage.dart';
+import 'package:tumdi_1/pages/mainPage.dart';
 import 'package:tumdi_1/widget/containersqaure.dart';
 
 class QuickAccess extends StatelessWidget {
@@ -12,11 +15,22 @@ class QuickAccess extends StatelessWidget {
     "Mataji"
   ];
   List<Bannerimg> bannerimg = [
-    Bannerimg(name: "Business", imageurl: "business.jpeg"),
-    Bannerimg(name: "Family Tree", imageurl: "familytree.jpeg"),
-    Bannerimg(name: "Directory", imageurl: "directory.jpeg"),
-    Bannerimg(name: "Jobs", imageurl: "jobs.jpeg"),
-    Bannerimg(name: "Mataji", imageurl: "mataji.jpeg"),
+    Bannerimg(
+        name: "Business",
+        imageurl: "business.jpeg",
+        navigateurl: const Directory()),
+    Bannerimg(
+        name: "Family Tree",
+        imageurl: "familytree.jpeg",
+        navigateurl: const Directory()),
+    Bannerimg(
+        name: "Directory",
+        imageurl: "directory.jpeg",
+        navigateurl: const Directory()),
+    Bannerimg(
+        name: "Jobs", imageurl: "jobs.jpeg", navigateurl: const Directory()),
+    Bannerimg(
+        name: "Mataji", imageurl: "mataji.jpeg", navigateurl: const MainPage()),
   ];
 
   @override
@@ -30,8 +44,10 @@ class QuickAccess extends StatelessWidget {
             itemCount: bannerimg.length,
             itemBuilder: (context, index) {
               return Containersqaure(
-                  name: bannerimg[index].name,
-                  imgurl: bannerimg[index].imageurl);
+                name: bannerimg[index].name,
+                imgurl: bannerimg[index].imageurl,
+                networkurl: bannerimg[index].navigateurl,
+              );
             }),
       ),
     );
