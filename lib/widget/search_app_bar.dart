@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tumdi_1/controller/search_controller.dart';
 
 PreferredSizeWidget? searchAppBar(BuildContext context) {
-  final MySearchController searchController =
-      MySearchController(context: context);
   return PreferredSize(
     preferredSize: const Size(double.infinity, 65),
     child: Container(
@@ -38,7 +35,7 @@ PreferredSizeWidget? searchAppBar(BuildContext context) {
             width: MediaQuery.of(context).size.width - 70,
             child: TextField(
               keyboardType: TextInputType.multiline,
-              onChanged: (value) => searchController.onChange(value),
+              //     onChanged: (value) => searchController.onChange(value),
               onTapOutside: (event) {
                 FocusScope.of(context).requestFocus(FocusNode());
               },

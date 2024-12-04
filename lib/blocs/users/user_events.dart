@@ -2,11 +2,13 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-abstract class UserEvent extends Equatable {
+abstract class UserEvent {
   const UserEvent();
 }
 
-class LoadUserEvent extends UserEvent {
-  @override
-  List<Object?> get props => [];
+class FetchItems extends UserEvent {}
+
+class SearchItems extends UserEvent {
+  final String query;
+  SearchItems(this.query);
 }
