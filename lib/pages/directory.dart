@@ -49,6 +49,7 @@ class _DirectoryState extends State<Directory> {
             if (state is UserLoadedState) {
               List<UserModel> userList = state.users;
               return ListView.builder(
+                  scrollDirection: Axis.vertical,
                   itemCount: userList.length,
                   itemBuilder: (_, index) {
                     return Padding(
@@ -58,16 +59,16 @@ class _DirectoryState extends State<Directory> {
                           color: Theme.of(context).primaryColor,
                           child: ListTile(
                               title: Text(
-                                '${userList[index].firstName}  ${userList[index].lastName}',
+                                '${userList[index].name}  ${userList[index].brand}',
                                 style: const TextStyle(color: Colors.white),
                               ),
                               subtitle: Text(
-                                '${userList[index].email}',
+                                '${userList[index].price}',
                                 style: const TextStyle(color: Colors.white),
                               ),
                               leading: CircleAvatar(
                                 backgroundImage: NetworkImage(
-                                    userList[index].avatar.toString()),
+                                    userList[index].imageLink.toString()),
                               ))),
                     );
                   });

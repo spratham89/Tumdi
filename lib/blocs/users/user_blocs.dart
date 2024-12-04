@@ -21,7 +21,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<SearchItems>((event, emit) {
       final query = event.query.toLowerCase();
       final filteredItems = _allItems
-          .where((item) => item.firstName!.toLowerCase().contains(query))
+          .where((item) => item.name!.toLowerCase().contains(query))
           .toList();
       emit(UserLoadedState(filteredItems));
     });
