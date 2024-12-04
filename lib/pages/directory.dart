@@ -22,13 +22,23 @@ class _DirectoryState extends State<Directory> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TextField(
-          onChanged: (value) {
-            itemBloc.add(SearchItems(value));
-          },
-          decoration: InputDecoration(
-            hintText: 'Search...',
-          ),
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TextField(
+              onChanged: (value) {
+                itemBloc.add(SearchItems(value));
+              },
+              decoration: InputDecoration(
+                hintText: 'Search...',
+              ),
+            ),
+            const Icon(
+              Icons.filter_alt_outlined,
+              color: Colors.blue,
+              size: 36.0,
+            ),
+          ],
         ),
       ),
       body: BlocProvider(
