@@ -1,6 +1,13 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tumdi_1/blocs/banner/banner_blocs.dart';
+import 'package:tumdi_1/blocs/banner/banner_states.dart';
+import 'package:tumdi_1/models/banner/banner_model.dart';
+
+import 'package:tumdi_1/repo/banner/bannerespository.dart';
+
 final List<String> imgList = [
   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
   'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
@@ -11,34 +18,69 @@ final List<String> imgList = [
 ];
 final List<Widget> imageSliders = imgList
     .map((item) => Container(
-    
-           
-      margin: EdgeInsets.all(5.0),
-      child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(5.0)),
-          child: Stack(
-            children: <Widget>[
-              Image.network(item, fit: BoxFit.cover,),
-            ],
-          )),
-    ))
+          margin: EdgeInsets.all(5.0),
+          child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
+              child: Stack(
+                children: <Widget>[
+                  Image.network(
+                    item,
+                    fit: BoxFit.cover,
+                  ),
+                ],
+              )),
+        ))
     .toList();
+
 class Sliderwheel extends StatelessWidget {
-  const Sliderwheel({super.key});
+  Sliderwheel({super.key});
+  final BannerBloc bannerBloc = BannerBloc(BannerRepository());
 
   @override
   Widget build(BuildContext context) {
     return Container(
-     
-        child: CarouselSlider(
+      child: CarouselSlider(
           options: CarouselOptions(
             autoPlay: true,
-
             enlargeCenterPage: false,
           ),
-          items: imageSliders,
-        ),
-      );
-    
+          //  items: imageSliders,
+          items: BlocProvider(
+            create: (_) => bannerBloc..add(FetchBanners()),
+            child: BlocBuilder<BannerBloc, BannerState>(
+              builder: (context, state) {
+                if (state is BannersLoadingState) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (state is BannersErrorState) {
+                  return const Center(child: Text("Error"));
+                }
+                if (state is BannersLoadedState) {
+                  List<BannersModel> blogsList = state.blogs;
+                  return Expanded(
+                    child: Container(
+          margin: EdgeInsets.all(5.0),
+          child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
+              child: Stack(
+                children: <Widget>[
+                  Image.network(
+                    item,
+                    fit: BoxFit.cover,
+                  ),
+                ],
+              )),
+        ))
+                }
+                  );
+                }
+
+                return Container();
+              },
+            ),
+          )),
+    );
   }
 }

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tumdi_1/models/banner/banner.dart';
-import 'package:tumdi_1/pages/business.dart';
+import 'package:tumdi_1/models/category/category.dart';
 import 'package:tumdi_1/pages/directory.dart';
 import 'package:tumdi_1/pages/homepage.dart';
-import 'package:tumdi_1/pages/jobs.dart';
 import 'package:tumdi_1/pages/mainPage.dart';
 import 'package:tumdi_1/widget/containersqaure.dart';
 
@@ -18,7 +16,9 @@ class QuickAccess extends StatelessWidget {
   ];
   List<Bannerimg> bannerimg = [
     Bannerimg(
-        name: "Business", imageurl: "business.jpeg", navigateurl: Business()),
+        name: "Business",
+        imageurl: "business.jpeg",
+        navigateurl: const Directory()),
     Bannerimg(
         name: "Family Tree",
         imageurl: "familytree.jpeg",
@@ -27,7 +27,8 @@ class QuickAccess extends StatelessWidget {
         name: "Directory",
         imageurl: "directory.jpeg",
         navigateurl: const Directory()),
-    Bannerimg(name: "Jobs", imageurl: "jobs.jpeg", navigateurl: Jobs()),
+    Bannerimg(
+        name: "Jobs", imageurl: "jobs.jpeg", navigateurl: const Directory()),
     Bannerimg(
         name: "Mataji", imageurl: "mataji.jpeg", navigateurl: const MainPage()),
   ];
