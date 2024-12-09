@@ -37,7 +37,7 @@ class Miscellaneous extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                child: const Column(
+                child:  Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -98,7 +98,7 @@ class Miscellaneous extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                child: const Column(
+                child:  Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -130,7 +130,7 @@ class Miscellaneous extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                child: const Column(
+                child:  Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

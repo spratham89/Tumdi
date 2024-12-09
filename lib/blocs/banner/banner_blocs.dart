@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:tumdi_1/blocs/Banner/Banner_events.dart';
-import 'package:tumdi_1/blocs/Banner/Banner_states.dart';
 import 'package:tumdi_1/blocs/banner/banner_events.dart';
 import 'package:tumdi_1/blocs/banner/banner_states.dart';
 import 'package:tumdi_1/models/banner/banner_model.dart';
+
 import 'package:tumdi_1/repo/banner/bannerespository.dart';
 
 class BannerBloc extends Bloc<BannerEvent, BannerState> {

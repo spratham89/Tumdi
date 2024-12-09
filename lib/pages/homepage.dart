@@ -12,7 +12,7 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   List itemsDishes = [
-    const Sliderwheel(),
+     Sliderwheel(),
     const Padding(
       padding: EdgeInsets.all(8.0),
       child: Text(

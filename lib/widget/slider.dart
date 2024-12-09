@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tumdi_1/blocs/banner/banner_blocs.dart';
+import 'package:tumdi_1/blocs/banner/banner_events.dart';
 import 'package:tumdi_1/blocs/banner/banner_states.dart';
 import 'package:tumdi_1/models/banner/banner_model.dart';
 
@@ -38,49 +39,45 @@ class Sliderwheel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: CarouselSlider(
-          options: CarouselOptions(
-            autoPlay: true,
-            enlargeCenterPage: false,
-          ),
-          //  items: imageSliders,
-          items: BlocProvider(
-            create: (_) => bannerBloc..add(FetchBanners()),
-            child: BlocBuilder<BannerBloc, BannerState>(
-              builder: (context, state) {
-                if (state is BannersLoadingState) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
+    return BlocProvider(
+          create: (_) => bannerBloc..add(FetchBanners()),
+          child: BlocBuilder<BannerBloc, BannerState>(
+            builder: (context, state) {
+              if (state is BannersLoadingState) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              if (state is BannersErrorState) {
+                return const Center(child: Text("Error"));
+              }
+              if (state is BannersLoadedState) {
+             
+             return   CarouselSlider(
+        options: CarouselOptions(
+          autoPlay: true,
+          enlargeCenterPage: false,
+        ),
+        //  items: imageSliders,
+        items: state.banners.map((image) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.network(image.url, fit: BoxFit.cover),
+                      );
+                    },
                   );
-                }
-                if (state is BannersErrorState) {
-                  return const Center(child: Text("Error"));
-                }
-                if (state is BannersLoadedState) {
-                  List<BannersModel> blogsList = state.blogs;
-                  return Expanded(
-                    child: Container(
-          margin: EdgeInsets.all(5.0),
-          child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(5.0)),
-              child: Stack(
-                children: <Widget>[
-                  Image.network(
-                    item,
-                    fit: BoxFit.cover,
-                  ),
-                ],
-              )),
-        ))
-                }
-                  );
-                }
+                }).toList(),
+       // items:imageSliders,
+                );
+              }
 
-                return Container();
-              },
-            ),
-          )),
-    );
-  }
+              return Container();
+            },
+          ),
+        ); 
+
+           
+              }
 }
