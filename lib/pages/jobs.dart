@@ -1,41 +1,42 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tumdi_1/blocs/blogs/blogs_blocs.dart';
-import 'package:tumdi_1/blocs/blogs/blogs_events.dart';
-import 'package:tumdi_1/blocs/blogs/blogs_states.dart';
-import 'package:tumdi_1/models/blogs/blogs_model.dart';
-import 'package:tumdi_1/pages/mydrawer.dart';
-import 'package:tumdi_1/repo/blogs/blogrepository.dart';
+import 'package:tumdi_1/blocs/jobs/job_blocs.dart';
+import 'package:tumdi_1/blocs/jobs/job_events.dart';
+import 'package:tumdi_1/blocs/jobs/job_states.dart';
+import 'package:tumdi_1/models/jobs/job_model.dart';
 
-class Blogs extends StatelessWidget {
-  Blogs({super.key});
-  final BlogBloc blogsBloc = BlogBloc(BlogsRepository());
+import 'package:tumdi_1/repo/jobs/jobrepository.dart';
+
+class Jobs extends StatelessWidget {
+  Jobs({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final JobsBloc jobsBloc = JobsBloc(JobRepository());
+
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Blogs'),
+          title: const Text('Jobs'),
           centerTitle: true,
         ),
         body: BlocProvider(
-          create: (_) => blogsBloc..add(FetchBlogs()),
-          child: BlocBuilder<BlogBloc, BlogState>(
+          create: (_) => jobsBloc..add(FetchJobs()),
+          child: BlocBuilder<JobsBloc, JobsState>(
             builder: (context, state) {
-              if (state is BlogsLoadingState) {
+              if (state is JobsLoadingState) {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
               }
-              if (state is BlogsErrorState) {
+              if (state is JobsErrorState) {
                 return const Center(child: Text("Error"));
               }
-              if (state is BlogsLoadedState) {
-                List<BlogsModel> blogsList = state.blogs;
+              if (state is JobsLoadedState) {
+                List<JobModel> blogsList = state.jobs;
                 return Expanded(
                   child: ListView.builder(
-                    //  shrinkWrap: true,
-                    //  crossAxisAlignment: CrossAxisAlignment.start,
                     itemCount: blogsList.length,
                     itemBuilder: (context, index) {
                       return Card(

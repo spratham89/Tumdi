@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tumdi_1/pages/mydrawer.dart';
-import 'package:tumdi_1/widget/rectanglelist.dart';
 
 class Latest extends StatelessWidget {
   const Latest({super.key});
@@ -26,7 +25,7 @@ class Latest extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: Rectanglelist(height: 100.0, width: 100.0),
+                    //   child: Rectanglelist(height: 100.0, width: 100.0),
                   );
                 },
               ),

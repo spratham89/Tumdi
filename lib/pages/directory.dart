@@ -42,9 +42,6 @@ class _DirectoryState extends State<Directory> {
         ),
       ),
       body: BlocProvider(
-        /*  create: (context) => UserBloc(
-      UserRepository(),
-    )..add(FetchItems()), */
         create: (_) => itemBloc..add(FetchItems()),
         child: BlocBuilder<UserBloc, UserState>(
           builder: (context, state) {

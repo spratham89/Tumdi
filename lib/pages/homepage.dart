@@ -27,12 +27,14 @@ class _HomepageState extends State<Homepage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: itemsDishes.length,
-      itemBuilder: (context, index) {
-        return itemsDishes[index];
-      },
+    return Expanded(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: itemsDishes.length,
+        itemBuilder: (context, index) {
+          return itemsDishes[index];
+        },
+      ),
     );
   }
 }

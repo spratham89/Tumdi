@@ -10,7 +10,6 @@ class Miscellaneous extends StatelessWidget {
   const Miscellaneous({super.key});
 
   @override
-  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +84,7 @@ class Miscellaneous extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Gallery()),
+                  MaterialPageRoute(builder: (context) => Gallery()),
                 );
               },
               child: Container(
@@ -117,7 +116,7 @@ class Miscellaneous extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Blogs()),
+                  MaterialPageRoute(builder: (context) => Blogs()),
                 );
               },
               child: Container(

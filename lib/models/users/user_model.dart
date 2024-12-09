@@ -4,12 +4,6 @@
 
 import 'dart:convert';
 
-List<UserModel> welcomeFromJson(String str) =>
-    List<UserModel>.from(json.decode(str).map((x) => UserModel.fromJson(x)));
-
-String welcomeToJson(List<UserModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
 class UserModel {
   int? id;
   String? brand;
