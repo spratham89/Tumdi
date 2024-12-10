@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tumdi_1/models/category/category.dart';
+import 'package:tumdi_1/pages/business.dart';
 import 'package:tumdi_1/pages/directory.dart';
 import 'package:tumdi_1/pages/homepage.dart';
 import 'package:tumdi_1/pages/mainPage.dart';
@@ -18,7 +19,7 @@ class QuickAccess extends StatelessWidget {
     Bannerimg(
         name: "Business",
         imageurl: "business.jpeg",
-        navigateurl: const Directory()),
+        navigateurl:  Business()),
     Bannerimg(
         name: "Family Tree",
         imageurl: "familytree.jpeg",
@@ -40,7 +41,7 @@ class QuickAccess extends StatelessWidget {
       child: Expanded(
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            //   shrinkWrap: true,
+             shrinkWrap: true,
             itemCount: bannerimg.length,
             itemBuilder: (context, index) {
               return Containersqaure(
