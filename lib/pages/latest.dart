@@ -1,36 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:tumdi_1/pages/mydrawer.dart';
 
-class Latest extends StatelessWidget {
+class Latest extends StatefulWidget {
   const Latest({super.key});
 
   @override
+  State<Latest> createState() => _LatestState();
+}
+
+class _LatestState extends State<Latest> with SingleTickerProviderStateMixin  {
+   late TabController _tabController;
+
+   @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Column(
+    return Scaffold(
+       appBar: AppBar(
+     // title: Text('Nested Scroll Example'),
+      bottom:  TabBar(
+        controller: _tabController,
+        tabs: [
+          Tab(text: 'Past'),
+                Tab(text: 'Upcoming'),
+        ],
+      ),
+    ),
+      body:  TabBarView(
+          controller: _tabController,
         children: [
-          const TabBar(
-            tabs: [
-              Tab(text: 'Past'),
-              Tab(text: 'Upcoming'),
-            ],
-          ),
-          TabBarView(
-            children: [
-              ListView.builder(
-                shrinkWrap: true,
-                //  crossAxisAlignment: CrossAxisAlignment.start,
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    //   child: Rectanglelist(height: 100.0, width: 100.0),
-                  );
-                },
-              ),
-            ],
-          ),
+          Center(),Center()
+        
         ],
       ),
     );

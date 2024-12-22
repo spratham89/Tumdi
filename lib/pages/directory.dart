@@ -33,11 +33,7 @@ class _DirectoryState extends State<Directory> {
                 hintText: 'Search...',
               ),
             ),
-            const Icon(
-              Icons.filter_alt_outlined,
-              color: Colors.blue,
-              size: 36.0,
-            ),
+           
           ],
         ),
       ),

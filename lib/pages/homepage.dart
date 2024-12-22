@@ -12,7 +12,7 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   List itemsDishes = [
-     Sliderwheel(),
+    Sliderwheel(),
     const Padding(
       padding: EdgeInsets.all(8.0),
       child: Text(
@@ -22,17 +22,21 @@ class _HomepageState extends State<Homepage> {
             fontWeight: FontWeight.bold, fontSize: 20.0, color: Colors.black),
       ),
     ),
-    QuickAccess(),
+   QuickAccess(),
     const Miscellaneous(),
   ];
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: double.infinity,
       child: ListView.builder(
         shrinkWrap: true,
         itemCount: itemsDishes.length,
         itemBuilder: (context, index) {
-          return itemsDishes[index];
+          return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [itemsDishes[index]]
+                );
         },
       ),
     );

@@ -35,7 +35,8 @@ class Gallery extends StatelessWidget {
             }
             if (state is GalleryLoadedState) {
               List<GalleryModel> galleryList = state.gallery;
-              return Expanded(
+              return SizedBox(
+     // height: 200.0,
                 child: ListView.builder(
                   //  shrinkWrap: true,
                   //  crossAxisAlignment: CrossAxisAlignment.start,

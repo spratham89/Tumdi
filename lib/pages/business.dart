@@ -31,7 +31,7 @@ class Business extends StatelessWidget {
               }
               if (state is BusinessLoadedState) {
                 List<BusinessModel> BusinessList = state.Business;
-                return Expanded(
+                return SizedBox(
                   child: ListView.builder(
                     //  shrinkWrap: true,
                     //  crossAxisAlignment: CrossAxisAlignment.start,

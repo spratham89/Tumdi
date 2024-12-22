@@ -35,7 +35,8 @@ class Jobs extends StatelessWidget {
               }
               if (state is JobsLoadedState) {
                 List<JobModel> blogsList = state.jobs;
-                return Expanded(
+                return SizedBox(
+   
                   child: ListView.builder(
                     itemCount: blogsList.length,
                     itemBuilder: (context, index) {

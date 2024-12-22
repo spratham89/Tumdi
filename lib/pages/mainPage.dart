@@ -57,15 +57,15 @@ class _MainPageState extends State<MainPage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.last_page),
+            icon: Icon(Icons.calendar_month),
             label: 'Latest',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.today),
+            icon: Icon(Icons.calendar_view_day),
             label: 'Today',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.abc_outlined),
+            icon: Icon(Icons.person),
             label: 'Profile',
           ),
         ],

@@ -32,7 +32,8 @@ class Blogs extends StatelessWidget {
               }
               if (state is BlogsLoadedState) {
                 List<BlogsModel> blogsList = state.blogs;
-                return Expanded(
+                return SizedBox(
+    //  height: 200.0,
                   child: ListView.builder(
                     //  shrinkWrap: true,
                     //  crossAxisAlignment: CrossAxisAlignment.start,
