@@ -17,22 +17,17 @@ class QuickAccess extends StatelessWidget {
   ];
   List<Bannerimg> bannerimg = [
     Bannerimg(
+        name: "Directory",
+        imageurl: "directory.jpeg",
+        navigateurl: const Directory()),
+   
+    Bannerimg(
         name: "Business",
         imageurl: "business.jpeg",
         navigateurl:  Business()),
     Bannerimg(
-        name: "Family Tree",
-        imageurl: "familytree.jpeg",
-        navigateurl: const Directory()),
-    Bannerimg(
-        name: "Directory",
-        imageurl: "directory.jpeg",
-        navigateurl: const Directory()),
-    Bannerimg(
-        name: "Jobs", imageurl: "jobs.jpeg", navigateurl: const Directory()),
-    Bannerimg(
-        name: "Mataji", imageurl: "mataji.jpeg", navigateurl: const MainPage()),
-  ];
+        name: "Matrimonial", imageurl: "matrimonial.jpeg", navigateurl: const Directory()),
+    ];
 
   @override
   Widget build(BuildContext context) {

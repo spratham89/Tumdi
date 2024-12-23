@@ -64,7 +64,7 @@ class Sliderwheel extends StatelessWidget {
                     builder: (BuildContext context) {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Image.network(image.url, fit: BoxFit.cover),
+                        child: Image.asset('assets/images/slider.jpeg', fit: BoxFit.cover),
                       );
                     },
                   );

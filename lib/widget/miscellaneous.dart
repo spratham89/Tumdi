@@ -44,9 +44,9 @@ class Miscellaneous extends StatelessWidget {
                     // Image.asset('assets/images/flutter-logo.png'),
                     Sliderwheel(),
                     const Text(
-                      "Latest",
+                      "News / Events",
                       style: TextStyle(fontSize: 14.0, color: Colors.black),
-                    ),
+                    )
                   ],
                 ),
               ),
@@ -68,7 +68,7 @@ class Miscellaneous extends StatelessWidget {
                 children: [
                   Image.asset('assets/images/flutter-logo.png'),
                   const Text(
-                    "Donors",
+                    "Business",
                     style: TextStyle(fontSize: 14.0, color: Colors.black),
                   ),
                 ],
