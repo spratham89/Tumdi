@@ -14,54 +14,58 @@ class Business extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Color.fromRGBO(253, 231, 234, 1),
           title: const Text('Business'),
           centerTitle: true,
         ),
-        body: BlocProvider(
-          create: (_) => businessBloc..add(FetchBusiness()),
-          child: BlocBuilder<BusinessBloc, Businesstate>(
-            builder: (context, state) {
-              if (state is BusinessLoadingState) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              if (state is BusinessErrorState) {
-                return const Center(child: Text("Error"));
-              }
-              if (state is BusinessLoadedState) {
-                List<BusinessModel> BusinessList = state.Business;
-                return SizedBox(
-                  child: ListView.builder(
-                    //  shrinkWrap: true,
-                    //  crossAxisAlignment: CrossAxisAlignment.start,
-                    itemCount: BusinessList.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                          elevation: 10,
-                          child: ListTile(
-                              leading: FittedBox(
-                                fit: BoxFit.fill,
-                                child: Image.network(BusinessList[index].url,
-                                    // width: MediaQuery.of(context).size.width,
-                                    height: 50.0,
-                                    width: 50.0),
-                              ),
-                              title: Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Text(
-                                  BusinessList[index].title,
-                                  textAlign: TextAlign.left,
-                                  maxLines: 2,
+        body: Container(
+          decoration: BoxDecoration(color: Color.fromRGBO(253, 231, 234, 1)),
+          child: BlocProvider(
+            create: (_) => businessBloc..add(FetchBusiness()),
+            child: BlocBuilder<BusinessBloc, Businesstate>(
+              builder: (context, state) {
+                if (state is BusinessLoadingState) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (state is BusinessErrorState) {
+                  return const Center(child: Text("Error"));
+                }
+                if (state is BusinessLoadedState) {
+                  List<BusinessModel> BusinessList = state.Business;
+                  return SizedBox(
+                    child: ListView.builder(
+                      //  shrinkWrap: true,
+                      //  crossAxisAlignment: CrossAxisAlignment.start,
+                      itemCount: BusinessList.length,
+                      itemBuilder: (context, index) {
+                        return Card(
+                            elevation: 10,
+                            child: ListTile(
+                                leading: FittedBox(
+                                  fit: BoxFit.fill,
+                                  child: Image.network(BusinessList[index].url,
+                                      // width: MediaQuery.of(context).size.width,
+                                      height: 50.0,
+                                      width: 50.0),
                                 ),
-                              )));
-                    },
-                  ),
-                );
-              }
+                                title: Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Text(
+                                    BusinessList[index].title,
+                                    textAlign: TextAlign.left,
+                                    maxLines: 2,
+                                  ),
+                                )));
+                      },
+                    ),
+                  );
+                }
 
-              return Container();
-            },
+                return Container();
+              },
+            ),
           ),
         ));
   }

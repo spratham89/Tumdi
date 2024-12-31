@@ -21,9 +21,10 @@ class Containersqaure extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Container(
           padding: const EdgeInsets.all(8),
-          height: 150.0,
-          width: 150.0,
+          height: 80,
+          width: 150,
           decoration: BoxDecoration(
+            color: Colors.white,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
               width: 1,
@@ -34,14 +35,25 @@ class Containersqaure extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/images/$imgurl',
-                width: 100.0,
-                height: 100.0,
+              Container(
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20))),
+                child: Image.asset(
+                  'assets/images/$imgurl',
+                  width: 100,
+                  height: 80.0,
+                  fit: BoxFit.fill,
+                ),
               ),
-              Text(
-                name,
-                style: TextStyle(fontSize: 14.0, color: Colors.black),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  name,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 14.0, color: Colors.black),
+                ),
               ),
             ],
           ),

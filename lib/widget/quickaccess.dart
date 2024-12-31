@@ -18,25 +18,23 @@ class QuickAccess extends StatelessWidget {
   List<Bannerimg> bannerimg = [
     Bannerimg(
         name: "Directory",
-        imageurl: "directory.jpeg",
+        imageurl: "directory.png",
         navigateurl: const Directory()),
-   
     Bannerimg(
-        name: "Business",
-        imageurl: "business.jpeg",
-        navigateurl:  Business()),
+        name: "Business", imageurl: "business.png", navigateurl: Business()),
     Bannerimg(
-        name: "Matrimonial", imageurl: "matrimonial.jpeg", navigateurl: const Directory()),
-    ];
+        name: "Matrimonial",
+        imageurl: "matrimonial.jpeg",
+        navigateurl: const Directory()),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return 
-    SizedBox(
-      height: 200.0,
+    return SizedBox(
+      height: 150.0,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-           shrinkWrap: true,
+          shrinkWrap: true,
           itemCount: bannerimg.length,
           itemBuilder: (context, index) {
             return Containersqaure(
@@ -45,6 +43,6 @@ class QuickAccess extends StatelessWidget {
               networkurl: bannerimg[index].navigateurl,
             );
           }),
-    ); 
+    );
   }
 }

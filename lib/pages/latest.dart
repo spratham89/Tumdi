@@ -8,10 +8,10 @@ class Latest extends StatefulWidget {
   State<Latest> createState() => _LatestState();
 }
 
-class _LatestState extends State<Latest> with SingleTickerProviderStateMixin  {
-   late TabController _tabController;
+class _LatestState extends State<Latest> with SingleTickerProviderStateMixin {
+  late TabController _tabController;
 
-   @override
+  @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
@@ -26,22 +26,27 @@ class _LatestState extends State<Latest> with SingleTickerProviderStateMixin  {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
-     // title: Text('Nested Scroll Example'),
-      bottom:  TabBar(
-        controller: _tabController,
-        tabs: [
-          Tab(text: 'Past'),
-                Tab(text: 'Upcoming'),
-        ],
-      ),
-    ),
-      body:  TabBarView(
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(253, 231, 234, 1),
+        title: const Text(
+          'Latest',
+          textAlign: TextAlign.left,
+        ),
+        bottom: TabBar(
           controller: _tabController,
-        children: [
-          Center(),Center()
-        
-        ],
+          tabs: const [
+            Tab(text: 'Past'),
+            Tab(text: 'Upcoming'),
+          ],
+        ),
+      ),
+      drawer: Mydrawer(),
+      body: Container(
+        decoration: BoxDecoration(color: Color.fromRGBO(253, 231, 234, 1)),
+        child: TabBarView(
+          controller: _tabController,
+          children: [Center(), Center()],
+        ),
       ),
     );
   }

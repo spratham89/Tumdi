@@ -40,44 +40,43 @@ class Sliderwheel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-          create: (_) => bannerBloc..add(FetchBanners()),
-          child: BlocBuilder<BannerBloc, BannerState>(
-            builder: (context, state) {
-              if (state is BannersLoadingState) {
-                return const Center(
-                  child: CircularProgressIndicator(),
+      create: (_) => bannerBloc..add(FetchBanners()),
+      child: BlocBuilder<BannerBloc, BannerState>(
+        builder: (context, state) {
+          if (state is BannersLoadingState) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if (state is BannersErrorState) {
+            return const Center(child: Text("Error"));
+          }
+          if (state is BannersLoadedState) {
+            return CarouselSlider(
+              options: CarouselOptions(
+                autoPlay: true,
+                enlargeCenterPage: false,
+                viewportFraction: 1.0,
+              ),
+              //  items: imageSliders,
+              items: state.banners.map((image) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset('assets/images/sliderlogo.jpeg',
+                          fit: BoxFit.contain),
+                    );
+                  },
                 );
-              }
-              if (state is BannersErrorState) {
-                return const Center(child: Text("Error"));
-              }
-              if (state is BannersLoadedState) {
-             
-             return   CarouselSlider(
-        options: CarouselOptions(
-          autoPlay: true,
-          enlargeCenterPage: false,
-        ),
-        //  items: imageSliders,
-        items: state.banners.map((image) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Image.asset('assets/images/slider.jpeg', fit: BoxFit.cover),
-                      );
-                    },
-                  );
-                }).toList(),
-       // items:imageSliders,
-                );
-              }
+              }).toList(),
+              // items:imageSliders,
+            );
+          }
 
-              return Container();
-            },
-          ),
-        ); 
-
-           
-              }
+          return Container();
+        },
+      ),
+    );
+  }
 }

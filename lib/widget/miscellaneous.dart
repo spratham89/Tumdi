@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:tumdi_1/pages/blogs.dart';
 import 'package:tumdi_1/pages/gallery.dart';
 import 'package:tumdi_1/pages/latest.dart';
+import 'package:tumdi_1/pages/mataji.dart';
 import 'package:tumdi_1/widget/slider.dart';
 
 class Miscellaneous extends StatelessWidget {
@@ -31,21 +32,42 @@ class Miscellaneous extends StatelessWidget {
                 height: 150,
                 width: 150,
                 decoration: BoxDecoration(
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     width: 1,
                     color: Colors.black,
                   ),
                 ),
-                child:  Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Image.asset('assets/images/flutter-logo.png'),
-                    Sliderwheel(),
-                    const Text(
-                      "News / Events",
-                      style: TextStyle(fontSize: 14.0, color: Colors.black),
+                    Container(
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20))),
+                      child: Image.asset(
+                        'assets/images/newslogo.jpeg',
+                        width: 150,
+                        height: 80.0,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    //   Sliderwheel(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                        child: const Text(
+                          "News / Events",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 14.0, color: Colors.black),
+                        ),
+                      ),
                     )
                   ],
                 ),
@@ -56,6 +78,7 @@ class Miscellaneous extends StatelessWidget {
               height: 150,
               width: 150,
               decoration: BoxDecoration(
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
                   width: 1,
@@ -66,7 +89,21 @@ class Miscellaneous extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/images/flutter-logo.png'),
+                  Container(
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20))),
+                    child: Image.asset(
+                      'assets/images/businesslogo.jpeg',
+                      width: 150,
+                      height: 80.0,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
                   const Text(
                     "Business",
                     style: TextStyle(fontSize: 14.0, color: Colors.black),
@@ -84,7 +121,7 @@ class Miscellaneous extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Gallery()),
+                  MaterialPageRoute(builder: (context) => Mataji()),
                 );
               },
               child: Container(
@@ -92,20 +129,34 @@ class Miscellaneous extends StatelessWidget {
                 height: 150,
                 width: 150,
                 decoration: BoxDecoration(
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     width: 1,
                     color: Colors.black,
                   ),
                 ),
-                child:  Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Image.asset('assets/images/flutter-logo.png'),
-                    Sliderwheel(),
+                    Container(
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20))),
+                      child: Image.asset(
+                        'assets/images/mataji.png',
+                        width: 150,
+                        height: 80.0,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     const Text(
-                      "Gallery",
+                      "Mataji",
                       style: TextStyle(fontSize: 14.0, color: Colors.black),
                     ),
                   ],
@@ -116,7 +167,7 @@ class Miscellaneous extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Blogs()),
+                  MaterialPageRoute(builder: (context) => Gallery()),
                 );
               },
               child: Container(
@@ -124,20 +175,34 @@ class Miscellaneous extends StatelessWidget {
                 height: 150,
                 width: 150,
                 decoration: BoxDecoration(
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     width: 1,
                     color: Colors.black,
                   ),
                 ),
-                child:  Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Image.asset('assets/images/flutter-logo.png'),
-                    Sliderwheel(),
+                    Container(
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20))),
+                      child: Image.asset(
+                        'assets/images/gallerylogo.jpeg',
+                        width: 150,
+                        height: 80.0,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     const Text(
-                      "Blogs",
+                      "Gallery",
                       style: TextStyle(fontSize: 14.0, color: Colors.black),
                     ),
                   ],

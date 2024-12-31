@@ -22,6 +22,7 @@ class _DirectoryState extends State<Directory> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(253, 231, 234, 1),
         title: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -33,52 +34,54 @@ class _DirectoryState extends State<Directory> {
                 hintText: 'Search...',
               ),
             ),
-           
           ],
         ),
       ),
-      body: BlocProvider(
-        create: (_) => itemBloc..add(FetchItems()),
-        child: BlocBuilder<UserBloc, UserState>(
-          builder: (context, state) {
-            if (state is UserLoadingState) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            if (state is UserErrorState) {
-              return const Center(child: Text("Error"));
-            }
-            if (state is UserLoadedState) {
-              List<UserModel> userList = state.users;
-              return ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  itemCount: userList.length,
-                  itemBuilder: (_, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 4, horizontal: 8),
-                      child: Card(
-                          color: Theme.of(context).primaryColor,
-                          child: ListTile(
-                              title: Text(
-                                '${userList[index].name}  ${userList[index].brand}',
-                                style: const TextStyle(color: Colors.white),
-                              ),
-                              subtitle: Text(
-                                '${userList[index].price}',
-                                style: const TextStyle(color: Colors.white),
-                              ),
-                              leading: CircleAvatar(
-                                backgroundImage: NetworkImage(
-                                    userList[index].imageLink.toString()),
-                              ))),
-                    );
-                  });
-            }
+      body: Container(
+        decoration: BoxDecoration(color: Color.fromRGBO(253, 231, 234, 1)),
+        child: BlocProvider(
+          create: (_) => itemBloc..add(FetchItems()),
+          child: BlocBuilder<UserBloc, UserState>(
+            builder: (context, state) {
+              if (state is UserLoadingState) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              if (state is UserErrorState) {
+                return const Center(child: Text("Error"));
+              }
+              if (state is UserLoadedState) {
+                List<UserModel> userList = state.users;
+                return ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: userList.length,
+                    itemBuilder: (_, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 4, horizontal: 8),
+                        child: Card(
+                            color: Theme.of(context).primaryColor,
+                            child: ListTile(
+                                title: Text(
+                                  '${userList[index].name}  ${userList[index].brand}',
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                                subtitle: Text(
+                                  '${userList[index].price}',
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                                leading: CircleAvatar(
+                                  backgroundImage: NetworkImage(
+                                      userList[index].imageLink.toString()),
+                                ))),
+                      );
+                    });
+              }
 
-            return Container();
-          },
+              return Container();
+            },
+          ),
         ),
       ),
     );
